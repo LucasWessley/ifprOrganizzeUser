@@ -22,61 +22,81 @@ class _EventUiDesignWidgetState extends State<EventUiDesignWidget> {
       child: SizedBox(
         height: 270,
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (c)=> EventDetailsScreen(
-                  model: widget.model,
-                )));
-              },
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(40),
-                child: Image.network(
-                  widget.model!.thumbnailUrl.toString(),
-                  height: 220,
-                  fit: BoxFit.fill,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (c) => EventDetailsScreen(
+                                model: widget.model,
+                              )));
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Image.network(
+                    widget.model!.thumbnailUrl.toString(),
+                    height: 220,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 2,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.model!.itemName.toString(),
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal),
-                ),
-                SizedBox(width: 20,),
-                Text(
-                  widget.model!.itemDateStart.toString(),
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal),
-                ),
-                SizedBox(width: 20,),
-                Text(
-                  widget.model!.itemHour.toString(),
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal),
-                ),
-                IconButton(onPressed: (){
-                  // ACTION INSCREVER-SE
+              SizedBox(
+                height: 2,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Text(
+                      widget.model!.itemName.toString().toUpperCase(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Text(
+                      'Data: ' + widget.model!.itemDateStart.toString(),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Flexible(
 
+                    child: Text(
+                      'Local: ' + widget.model!.itemLocal.toString(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
 
-                }, icon: Icon(Icons.pending_actions_outlined,
-                size: 30,)),
-              ],
-            ),
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -39,6 +39,8 @@ class _ItemUiDesignWidgetState extends State<ItemUiDesignWidget> {
               children: [
                 Text(
                   widget.model!.itemName.toString(),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -66,6 +68,7 @@ class _ItemUiDesignWidgetState extends State<ItemUiDesignWidget> {
                   ),
                   maxLines: 2,
                 ),
+
               ],
             ),
           ),

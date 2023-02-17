@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:organizzeuser/auth_screens/auth_screen.dart';
 import 'package:organizzeuser/global/global.dart';
+import 'package:organizzeuser/models/my_subscriptios_screen.dart';
+import 'package:organizzeuser/screens/certificate_screen.dart';
 
 import '../splashScreen/my_splash_screen.dart';
 
@@ -71,7 +73,8 @@ class _MyDrawerState extends State<MyDrawer> {
                       style: TextStyle(color: Colors.black),
                     ),
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (c)=> MySplashScreen()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => MySplashScreen()));
                     }),
                 // Divider(
                 //   height: 10,
@@ -82,7 +85,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 //Meus Certificados
                 ListTile(
                     leading: Icon(
-                      Icons.ac_unit_sharp,
+                      Icons.picture_as_pdf_outlined,
                       color: Colors.black,
                     ),
                     title: Text(
@@ -90,6 +93,56 @@ class _MyDrawerState extends State<MyDrawer> {
                       style: TextStyle(color: Colors.black),
                     ),
                     onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => CertificateScreen()));
+                    }),
+                ListTile(
+                    leading: Icon(
+                      Icons.checklist,
+                      color: Colors.black,
+                    ),
+                    title: Text(
+                      "Minhas Inscrições",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => MySubsScreen()));
+                    }),
+                ListTile(
+                    leading: Icon(
+                      Icons.check,
+                      color: Colors.black,
+                    ),
+                    title: Text(
+                      "Validar Presença",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (c) => MySplashScreen(),
+                      //   ),
+                      // );
+                    }),
+
+                ListTile(
+                    leading: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
+                    title: Text(
+                      "Perfil",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (c) => MySplashScreen(),
+                      //   ),
+                      // );
                     }),
                 //SAIR
                 ListTile(

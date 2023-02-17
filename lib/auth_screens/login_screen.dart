@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:organizzeuser/auth_screens/auth_screen.dart';
+import 'package:organizzeuser/models/forgot_pass_screen.dart';
 import '../splashScreen/my_splash_screen.dart';
 import '../global/global.dart';
 import '../screens/home_screen.dart';
@@ -124,6 +125,27 @@ class _LoginTabPageState extends State<LoginTabPage> {
                   isObscure: true,
                   enable: true,
                 ),
+                SizedBox(height: 20,),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return ForgotPasswordPage();
+                      }),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Text(
+                      'Esqueceu a senha?',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green,
@@ -137,7 +159,8 @@ class _LoginTabPageState extends State<LoginTabPage> {
                       'Login',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
-                    ))
+                    )),
+
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:organizzeuser/global/global.dart';
 import 'package:organizzeuser/models/event_ui_design_widget.dart';
+import 'package:organizzeuser/utils/addEventSub.dart';
 import 'package:organizzeuser/widgets/my_drawer.dart';
 
 import '../models/event_model.dart';
@@ -14,6 +15,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    Inscricao().clearEvent(context);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
